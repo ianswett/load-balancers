@@ -1660,6 +1660,8 @@ C.1.  since draft-ietf-quic-load-balancers-04
 
    *  Added server use bytes to the test vectors
 
+   *  Additional compliant DCID criteria
+
 C.2.  since-draft-ietf-quic-load-balancers-03
 
    *  Improved Config Rotation text
@@ -1672,8 +1674,6 @@ C.3.  since-draft-ietf-quic-load-balancers-02
 
    *  Replaced stream cipher algorithm with three-pass version
 
-   *  Updated Retry format to encode info for required TPs
-
 
 
 
@@ -1681,6 +1681,8 @@ Duke & Banks               Expires 1 May 2021                  [Page 30]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
+
+   *  Updated Retry format to encode info for required TPs
 
    *  Added discussion of version invariance
 
@@ -1728,8 +1730,6 @@ C.8.  Since draft-duke-quic-load-balancers-04
 
 C.9.  Since draft-duke-quic-load-balancers-03
 
-   *  Renamed Plaintext CID algorithm as Obfuscated CID
-
 
 
 
@@ -1737,6 +1737,8 @@ Duke & Banks               Expires 1 May 2021                  [Page 31]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
+
+   *  Renamed Plaintext CID algorithm as Obfuscated CID
 
    *  Added new Plaintext CID algorithm
 
@@ -1782,8 +1784,6 @@ Authors' Addresses
    Microsoft
 
    Email: nibanks@microsoft.com
-
-
 
 
 
