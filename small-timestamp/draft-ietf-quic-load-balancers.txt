@@ -147,7 +147,7 @@ Internet-Draft                   QUIC-LB                    October 2020
      C.6.  Since draft-duke-quic-load-balancers-06 . . . . . . . . .  31
      C.7.  Since draft-duke-quic-load-balancers-05 . . . . . . . . .  31
      C.8.  Since draft-duke-quic-load-balancers-04 . . . . . . . . .  31
-     C.9.  Since draft-duke-quic-load-balancers-03 . . . . . . . . .  31
+     C.9.  Since draft-duke-quic-load-balancers-03 . . . . . . . . .  32
      C.10. Since draft-duke-quic-load-balancers-02 . . . . . . . . .  32
      C.11. Since draft-duke-quic-load-balancers-01 . . . . . . . . .  32
      C.12. Since draft-duke-quic-load-balancers-00 . . . . . . . . .  32
@@ -1032,13 +1032,7 @@ Internet-Draft                   QUIC-LB                    October 2020
    |                                                               |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                                                               |
-   +                                                               +
-   |                                                               |
-   +                                                               +
-   |                         date-time (160)                       |
-   +                                                               +
-   |                                                               |
-   +                                                               +
+   +                        Timestamp (64)                         +
    |                                                               |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Opaque Data (optional)                   |
@@ -1057,6 +1051,12 @@ Internet-Draft                   QUIC-LB                    October 2020
    Original Destination Connection ID: The server or Retry Service
    copies this from the field in the client Initial packet.
 
+   Retry Source Connection ID: The server or Retry service copies this
+   from the Source Connection ID of the Retry packet.
+
+   Client IP Address: The source IP address from the triggering Initial
+   packet.  The client IP address is 16 octets.  If an IPv4 address, the
+   last 12 octets are zeroes.
 
 
 
@@ -1066,17 +1066,9 @@ Duke & Banks               Expires 2 May 2021                  [Page 19]
 Internet-Draft                   QUIC-LB                    October 2020
 
 
-   Retry Source Connection ID: The server or Retry service copies this
-   from the Source Connection ID of the Retry packet.
-
-   Client IP Address: The source IP address from the triggering Initial
-   packet.  The client IP address is 16 octets.  If an IPv4 address, the
-   last 12 octets are zeroes.
-
-   date-time: The date-time string is a total of 20 octets and encodes
-   the time the token was generated.  The format of date-time is
-   described in Section 5.6 of [RFC3339].  This ASCII field MUST use the
-   "Z" character for time-offset.
+   Timestamp: The timestamp is a 64-bit integer, in network order, that
+   expresses the number of seconds in POSIX time (see Sec. 4.16 of
+   [TIME_T]).
 
    Opaque Data: The server may use this field to encode additional
    information, such as congestion window, RTT, or MTU.  Opaque data
@@ -1111,6 +1103,14 @@ Internet-Draft                   QUIC-LB                    October 2020
    retry tokens marked as being a few seconds in the future, due to
    possible clock synchronization issues.
 
+   After decrypting the token, the server uses the corresponding fields
+   to populate the original_destination_connection_id transport
+   parameter, with a length equal to ODCIL, and the
+   retry_source_connection_id transport parameter, with length equal to
+   RSCIL.
+
+   As discussed in [QUIC-TRANSPORT], a server MUST NOT send a Retry
+   packet in response to an Initial packet that contains a retry token.
 
 
 
@@ -1121,15 +1121,6 @@ Duke & Banks               Expires 2 May 2021                  [Page 20]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
-
-   After decrypting the token, the server uses the corresponding fields
-   to populate the original_destination_connection_id transport
-   parameter, with a length equal to ODCIL, and the
-   retry_source_connection_id transport parameter, with length equal to
-   RSCIL.
-
-   As discussed in [QUIC-TRANSPORT], a server MUST NOT send a Retry
-   packet in response to an Initial packet that contains a retry token.
 
 7.  Configuration Requirements
 
@@ -1164,6 +1155,15 @@ Internet-Draft                   QUIC-LB                    October 2020
    the conceptual range and not specify the presentation of such
    configuration in an internet packet.  The comments signify the range
    of acceptable values where applicable.
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1433,9 +1433,10 @@ Internet-Draft                   QUIC-LB                    October 2020
               Internet-Draft, draft-ietf-quic-transport,
               <https://tools.ietf.org/html/draft-ietf-quic-transport>.
 
-   [RFC3339]  Klyne, G. and C. Newman, "Date and Time on the Internet:
-              Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002,
-              <https://www.rfc-editor.org/info/rfc3339>.
+   [TIME_T]   "Open Group Standard: Vol. 1: Base Definitions, Issue 7",
+              IEEE Std 1003.1 , 2018,
+              <http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/
+              V1_chap04.html#tag_04_16>.
 
 12.2.  Informative References
 
@@ -1449,7 +1450,6 @@ Appendix A.  Load Balancer Test Vectors
    Each section of this draft includes multiple sets of load balancer
    configuration, each of which has five examples of server ID and
    server use bytes and how they are encoded in a CID.
-
 
 
 
@@ -1662,6 +1662,8 @@ C.1.  since draft-ietf-quic-load-balancers-04
 
    *  Additional compliant DCID criteria
 
+   *  More compact timestamp in Retry token
+
 C.2.  since-draft-ietf-quic-load-balancers-03
 
    *  Improved Config Rotation text
@@ -1672,8 +1674,6 @@ C.2.  since-draft-ietf-quic-load-balancers-03
 
 C.3.  since-draft-ietf-quic-load-balancers-02
 
-   *  Replaced stream cipher algorithm with three-pass version
-
 
 
 
@@ -1681,6 +1681,8 @@ Duke & Banks               Expires 2 May 2021                  [Page 30]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
+
+   *  Replaced stream cipher algorithm with three-pass version
 
    *  Updated Retry format to encode info for required TPs
 
@@ -1728,8 +1730,6 @@ C.8.  Since draft-duke-quic-load-balancers-04
 
    *  Added standard for retry services
 
-C.9.  Since draft-duke-quic-load-balancers-03
-
 
 
 
@@ -1737,6 +1737,8 @@ Duke & Banks               Expires 2 May 2021                  [Page 31]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
+
+C.9.  Since draft-duke-quic-load-balancers-03
 
    *  Renamed Plaintext CID algorithm as Obfuscated CID
 
@@ -1784,8 +1786,6 @@ Authors' Addresses
    Microsoft
 
    Email: nibanks@microsoft.com
-
-
 
 
 
