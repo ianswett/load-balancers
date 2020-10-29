@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2020-10-28T22:45:34.856061+00:00",
+  "timestamp": "2020-10-29T21:17:39.191498+00:00",
   "repo": "quicwg/load-balancers",
   "labels": [
     {
@@ -1017,16 +1017,24 @@
       "id": "MDU6SXNzdWU3MTg1MTQ3Nzk=",
       "title": "A question about retry token format",
       "url": "https://github.com/quicwg/load-balancers/issues/54",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Lingtaonju",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "In following `Figure 6: Cleartext format of shared-state retry tokens` , the token format only encode original dcid and retry scid, but not initial scid.\r\n\r\n![image](https://user-images.githubusercontent.com/19946268/95644074-5e8d3380-0ae6-11eb-8296-3b4c3c92b9ed.png)\r\n\r\n\r\nAs in the transport draft, it describes that all these three cids are carried in the transport parameters for Authenticating:\r\n![image](https://user-images.githubusercontent.com/19946268/95644109-b330ae80-0ae6-11eb-83e6-c260c4924cf2.png)\r\n\r\n",
       "createdAt": "2020-10-10T02:55:18Z",
-      "updatedAt": "2020-10-10T02:55:18Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2020-10-28T22:55:49Z",
+      "closedAt": "2020-10-28T22:55:49Z",
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "If you read it carefully, I think you'll see that this information isn't necessary in the token. The server needs S1, S2, and S3. S1 is the ODCID field. S2 is the RSCID field. S3 is the source connection ID it uses in the Initial it sends in response to the token! It is not even generated until the Retry token has been processed.",
+          "createdAt": "2020-10-28T22:55:49Z",
+          "updatedAt": "2020-10-28T22:55:49Z"
+        }
+      ]
     },
     {
       "number": 55,
