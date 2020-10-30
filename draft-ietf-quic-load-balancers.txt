@@ -92,7 +92,7 @@ Table of Contents
        4.1.2.  Load Balancer Actions . . . . . . . . . . . . . . . .  10
        4.1.3.  Server Actions  . . . . . . . . . . . . . . . . . . .  10
      4.2.  Stream Cipher CID Algorithm . . . . . . . . . . . . . . .  10
-       4.2.1.  Configuration Agent Actions . . . . . . . . . . . . .  11
+       4.2.1.  Configuration Agent Actions . . . . . . . . . . . . .  10
        4.2.2.  Load Balancer Actions . . . . . . . . . . . . . . . .  11
        4.2.3.  Server Actions  . . . . . . . . . . . . . . . . . . .  12
      4.3.  Block Cipher CID Algorithm  . . . . . . . . . . . . . . .  12
@@ -104,7 +104,7 @@ Table of Contents
      6.1.  Common Requirements . . . . . . . . . . . . . . . . . . .  15
      6.2.  No-Shared-State Retry Service . . . . . . . . . . . . . .  15
        6.2.1.  Configuration Agent Actions . . . . . . . . . . . . .  15
-       6.2.2.  Service Requirements  . . . . . . . . . . . . . . . .  16
+       6.2.2.  Service Requirements  . . . . . . . . . . . . . . . .  15
        6.2.3.  Server Requirements . . . . . . . . . . . . . . . . .  17
 
 
@@ -115,43 +115,43 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
      6.3.  Shared-State Retry Service  . . . . . . . . . . . . . . .  18
-       6.3.1.  Configuration Agent Actions . . . . . . . . . . . . .  20
-       6.3.2.  Service Requirements  . . . . . . . . . . . . . . . .  20
+       6.3.1.  Configuration Agent Actions . . . . . . . . . . . . .  19
+       6.3.2.  Service Requirements  . . . . . . . . . . . . . . . .  19
        6.3.3.  Server Requirements . . . . . . . . . . . . . . . . .  20
-   7.  Configuration Requirements  . . . . . . . . . . . . . . . . .  21
-   8.  Additional Use Cases  . . . . . . . . . . . . . . . . . . . .  22
+   7.  Configuration Requirements  . . . . . . . . . . . . . . . . .  20
+   8.  Additional Use Cases  . . . . . . . . . . . . . . . . . . . .  21
      8.1.  Load balancer chains  . . . . . . . . . . . . . . . . . .  22
-     8.2.  Moving connections between servers  . . . . . . . . . . .  23
-   9.  Version Invariance of QUIC-LB . . . . . . . . . . . . . . . .  23
-   10. Security Considerations . . . . . . . . . . . . . . . . . . .  24
+     8.2.  Moving connections between servers  . . . . . . . . . . .  22
+   9.  Version Invariance of QUIC-LB . . . . . . . . . . . . . . . .  22
+   10. Security Considerations . . . . . . . . . . . . . . . . . . .  23
      10.1.  Attackers not between the load balancer and server . . .  24
-     10.2.  Attackers between the load balancer and server . . . . .  25
-     10.3.  Multiple Configuration IDs . . . . . . . . . . . . . . .  25
-     10.4.  Limited configuration scope  . . . . . . . . . . . . . .  25
-     10.5.  Stateless Reset Oracle . . . . . . . . . . . . . . . . .  26
-   11. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  26
-   12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  26
-     12.1.  Normative References . . . . . . . . . . . . . . . . . .  26
-     12.2.  Informative References . . . . . . . . . . . . . . . . .  26
+     10.2.  Attackers between the load balancer and server . . . . .  24
+     10.3.  Multiple Configuration IDs . . . . . . . . . . . . . . .  24
+     10.4.  Limited configuration scope  . . . . . . . . . . . . . .  24
+     10.5.  Stateless Reset Oracle . . . . . . . . . . . . . . . . .  25
+   11. IANA Considerations . . . . . . . . . . . . . . . . . . . . .  25
+   12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  25
+     12.1.  Normative References . . . . . . . . . . . . . . . . . .  25
+     12.2.  Informative References . . . . . . . . . . . . . . . . .  25
    Appendix A.  Load Balancer Test Vectors . . . . . . . . . . . . .  26
-     A.1.  Plaintext Connection ID Algorithm . . . . . . . . . . . .  27
-     A.2.  Stream Cipher Connection ID Algorithm . . . . . . . . . .  28
-     A.3.  Block Cipher Connection ID Algorithm  . . . . . . . . . .  29
-   Appendix B.  Acknowledgments  . . . . . . . . . . . . . . . . . .  30
-   Appendix C.  Change Log . . . . . . . . . . . . . . . . . . . . .  30
-     C.1.  since draft-ietf-quic-load-balancers-04 . . . . . . . . .  30
-     C.2.  since-draft-ietf-quic-load-balancers-03 . . . . . . . . .  30
-     C.3.  since-draft-ietf-quic-load-balancers-02 . . . . . . . . .  30
-     C.4.  since-draft-ietf-quic-load-balancers-01 . . . . . . . . .  31
-     C.5.  since-draft-ietf-quic-load-balancers-00 . . . . . . . . .  31
-     C.6.  Since draft-duke-quic-load-balancers-06 . . . . . . . . .  31
-     C.7.  Since draft-duke-quic-load-balancers-05 . . . . . . . . .  31
-     C.8.  Since draft-duke-quic-load-balancers-04 . . . . . . . . .  31
-     C.9.  Since draft-duke-quic-load-balancers-03 . . . . . . . . .  32
-     C.10. Since draft-duke-quic-load-balancers-02 . . . . . . . . .  32
-     C.11. Since draft-duke-quic-load-balancers-01 . . . . . . . . .  32
-     C.12. Since draft-duke-quic-load-balancers-00 . . . . . . . . .  32
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  32
+     A.1.  Plaintext Connection ID Algorithm . . . . . . . . . . . .  26
+     A.2.  Stream Cipher Connection ID Algorithm . . . . . . . . . .  27
+     A.3.  Block Cipher Connection ID Algorithm  . . . . . . . . . .  28
+   Appendix B.  Acknowledgments  . . . . . . . . . . . . . . . . . .  29
+   Appendix C.  Change Log . . . . . . . . . . . . . . . . . . . . .  29
+     C.1.  since draft-ietf-quic-load-balancers-04 . . . . . . . . .  29
+     C.2.  since-draft-ietf-quic-load-balancers-03 . . . . . . . . .  29
+     C.3.  since-draft-ietf-quic-load-balancers-02 . . . . . . . . .  29
+     C.4.  since-draft-ietf-quic-load-balancers-01 . . . . . . . . .  30
+     C.5.  since-draft-ietf-quic-load-balancers-00 . . . . . . . . .  30
+     C.6.  Since draft-duke-quic-load-balancers-06 . . . . . . . . .  30
+     C.7.  Since draft-duke-quic-load-balancers-05 . . . . . . . . .  30
+     C.8.  Since draft-duke-quic-load-balancers-04 . . . . . . . . .  30
+     C.9.  Since draft-duke-quic-load-balancers-03 . . . . . . . . .  31
+     C.10. Since draft-duke-quic-load-balancers-02 . . . . . . . . .  31
+     C.11. Since draft-duke-quic-load-balancers-01 . . . . . . . . .  31
+     C.12. Since draft-duke-quic-load-balancers-00 . . . . . . . . .  31
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  31
 
 1.  Introduction
 
@@ -414,13 +414,13 @@ Internet-Draft                   QUIC-LB                    October 2020
    *  The DCID might not be long enough for the routing algorithm to
       process.
 
-   *  The config rotation bits Section 3.1 may not correspond to an
+   *  The config rotation bits (Section 3.1) may not correspond to an
       active configuration.
 
    *  The extracted server mapping might not correspond to an active
       server.
 
-   Load balancers MUST forward packets with long headers with non-
+   Load balancers MUST forward packets with long headers and non-
    compliant DCIDs to an active server using an algorithm of its own
    choosing.  It need not coordinate this algorithm with the servers.
    The algorithm SHOULD be deterministic over short time scales so that
@@ -438,7 +438,7 @@ Internet-Draft                   QUIC-LB                    October 2020
    that the encoded QUIC version does not allow a non-compliant DCID in
    a packet with that signature.  For example, a load balancer can
    safely drop a QUIC version 1 Handshake packet with a non-compliant
-   DCIDs.  The prohibition against dropping packets with long headers
+   DCID.  The prohibition against dropping packets with long headers
    remains for unknown QUIC versions.
 
 
@@ -469,8 +469,8 @@ Internet-Draft                   QUIC-LB                    October 2020
    The load balancer MUST NOT make the routing behavior dependent on any
    bits in the first octet of the QUIC packet header, except the first
    bit, which indicates a long header.  All other bits are QUIC version-
-   dependent and intermediaries would cannot build their design on
-   version-specific templates.
+   dependent and intermediaries cannot base their design on version-
+   specific templates.
 
    There are situations where a server pool might be operating two or
    more routing algorithms or parameter sets simultaneously.  The load
@@ -508,10 +508,9 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 4.1.1.  Configuration Agent Actions
 
-   The configuration agent selects a number of bytes of the server
-   connection ID to encode individual server IDs, called the "routing
-   bytes".  The number of bytes MUST have enough entropy to have a
-   different code point for each server.
+   The configuration agent selects a length for the server ID encoding.
+   This length MUST have enough entropy to have a different code point
+   for each server.
 
    It also assigns a server ID to each server.
 
@@ -550,10 +549,11 @@ Internet-Draft                   QUIC-LB                    October 2020
 
                      Figure 3: Stream Cipher CID Format
 
+4.2.1.  Configuration Agent Actions
 
-
-
-
+   The configuration agent assigns a server ID to every server in its
+   pool, and determines a server ID length (in octets) sufficiently
+   large to encode all server IDs, including potential future servers.
 
 
 
@@ -561,12 +561,6 @@ Duke & Banks               Expires 3 May 2021                  [Page 10]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
-
-4.2.1.  Configuration Agent Actions
-
-   The configuration agent assigns a server ID to every server in its
-   pool, and determines a server ID length (in octets) sufficiently
-   large to encode all server IDs, including potential future servers.
 
    The configuration agent also selects a nonce length and an 16-octet
    AES-ECB key to use for connection ID decryption.  The nonce length
@@ -610,6 +604,12 @@ Internet-Draft                   QUIC-LB                    October 2020
 
    server_id = server_id_intermediate ^ AES-ECB(key, padded-nonce)
 
+   For example, if the nonce length is 10 octets and the server ID
+   length is 2 octets, the connection ID can be as small as 13 octets.
+   The load balancer uses the the second through eleventh octets of the
+   connection ID for the nonce, zero-pads it to 16 octets, uses xors the
+   result with the twelfth and thirteenth octet.  The result is padded
+   with 14 octets of zeros and encrypted to obtain a mask that is xored
 
 
 
@@ -618,12 +618,6 @@ Duke & Banks               Expires 3 May 2021                  [Page 11]
 Internet-Draft                   QUIC-LB                    October 2020
 
 
-   For example, if the nonce length is 10 octets and the server ID
-   length is 2 octets, the connection ID can be as small as 13 octets.
-   The load balancer uses the the second through eleventh octets of the
-   connection ID for the nonce, zero-pads it to 16 octets, uses xors the
-   result with the twelfth and thirteenth octet.  The result is padded
-   with 14 octets of zeros and encrypted to obtain a mask that is xored
    with the nonce octets.  Finally, the nonce octets are padded with six
    octets of zeros, encrypted, and the first two octets xored with the
    server ID octets to obtain the actual server ID.
@@ -663,17 +657,6 @@ Internet-Draft                   QUIC-LB                    October 2020
    it also requires connection IDs of at least 17 octets, increasing
    overhead of client-to-server packets.
 
-
-
-
-
-
-
-Duke & Banks               Expires 3 May 2021                  [Page 12]
-
-Internet-Draft                   QUIC-LB                    October 2020
-
-
    0                   1                   2                   3
    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -683,6 +666,13 @@ Internet-Draft                   QUIC-LB                    October 2020
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |           Unencrypted bits for server use (0..24)             |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
+
+
+
+Duke & Banks               Expires 3 May 2021                  [Page 12]
+
+Internet-Draft                   QUIC-LB                    October 2020
+
 
                      Figure 4: Block Cipher CID Format
 
@@ -694,9 +684,9 @@ Internet-Draft                   QUIC-LB                    October 2020
    The server ID will start in the second octet of the decrypted
    connection ID and occupy continuous octets beyond that.
 
-   They server ID length MUST be no more than 16 octets and SHOULD sum
-   to no more than 12 octets, to provide servers adequate space to
-   encode their own opaque data.
+   They server ID length MUST be no more than 16 octets and SHOULD be no
+   more than 12 octets, to provide servers adequate space to encode
+   their own opaque data.
 
    The configuration agent also selects an 16-octet AES-ECB key to use
    for connection ID decryption.
@@ -721,6 +711,16 @@ Internet-Draft                   QUIC-LB                    October 2020
    octets SHOULD appear essentially random to observers.  The first
    octet is reserved as described in Section 3.
 
+   The server then encrypts the second through seventeenth octets using
+   the 128-bit AES-ECB cipher.
+
+
+
+
+
+
+
+
 
 
 
@@ -730,16 +730,13 @@ Duke & Banks               Expires 3 May 2021                  [Page 13]
 Internet-Draft                   QUIC-LB                    October 2020
 
 
-   The server then encrypts the second through seventeenth octets using
-   the 128-bit AES-ECB cipher.
-
 5.  ICMP Processing
 
    For protocols where 4-tuple load balancing is sufficient, it is
    straightforward to deliver ICMP packets from the network to the
-   correct server, by reading the IP and transport-layer headers to
-   obtain the 4-tuple.  When routing is based on connection ID, further
-   measures are required, as most QUIC packets that trigger ICMP
+   correct server, by reading the echoed `IP and transport-layer headers
+   to obtain the 4-tuple.  When routing is based on connection ID,
+   further measures are required, as most QUIC packets that trigger ICMP
    responses will only contain a client-generated connection ID that
    contains no routing information.
 
@@ -759,21 +756,24 @@ Internet-Draft                   QUIC-LB                    October 2020
    When a server is under load, QUICv1 allows it to defer storage of
    connection state until the client proves it can receive packets at
    its advertised IP address.  Through the use of a Retry packet, a
-   token in subsequent client Initial packets, and the
-   original_destination_connection_id transport parameter, servers
-   verify address ownership and clients verify that there is no on-path
-   attacker generating Retry packets.
+   token in subsequent client Initial packets, and transport parameters,
+   servers verify address ownership and clients verify that there is no
+   on-path attacker generating Retry packets.
 
-   As a trusted Retry Service is literally an on-path entity, the
-   service must communicate the original_destination_connection_id back
-   to the server so that it can pass client verification.  It also must
-   either verify the address itself (with the server trusting this
-   verification) or make sure there is common context for the server to
-   verify the address using a service-generated token.
+   A "Retry Service" detects potential Denial of Service attacks and
+   handles sending of Retry packets on behalf of the server.  As it is,
+   by definition, literally an on-path entity, the service must
+   communicate some of the original connection IDs back to the server so
+   that it can pass client verification.  It also must either verify the
+   address itself (with the server trusting this verification) or make
+   sure there is common context for the server to verify the address
+   using a service-generated token.
 
-   The service must also communicate the source connection ID of the
-   Retry packet to the server so that it can include it in a transport
-   parameter for client verification.
+   There are two different mechanisms to allow offload of DoS mitigation
+   to a trusted network service.  One requires no shared state; the
+   server need only be configured to trust a retry service, though this
+   imposes other operational constraints.  The other requires a shared
+   key, but has no such constraints.
 
 
 
@@ -786,14 +786,8 @@ Duke & Banks               Expires 3 May 2021                  [Page 14]
 Internet-Draft                   QUIC-LB                    October 2020
 
 
-   There are two different mechanisms to allow offload of DoS mitigation
-   to a trusted network service.  One requires no shared state; the
-   server need only be configured to trust a retry service, though this
-   imposes other operational constraints.  The other requires shared
-   key, but has no such constraints.
-
    Retry services MUST forward all QUIC packets that are not of type
-   Initial or 0-RTT.  Other packets types might involve changed IP
+   Initial or 0-RTT.  Other packet types might involve changed IP
    addresses or connection IDs, so it is not practical for Retry
    Services to identify such packets as valid or invalid.
 
@@ -828,8 +822,14 @@ Internet-Draft                   QUIC-LB                    October 2020
    The configuration agent distributes a list of QUIC versions to be
    served by the Retry Service.
 
+6.2.2.  Service Requirements
 
-
+   A no-shared-state retry service MUST be present on all paths from
+   potential clients to the server.  These paths MUST fail to pass QUIC
+   traffic should the service fail for any reason.  That is, if the
+   service is not operational, the server MUST NOT be exposed to client
+   traffic.  Otherwise, servers that have already disabled their Retry
+   capability would be vulnerable to attack.
 
 
 
@@ -841,15 +841,6 @@ Duke & Banks               Expires 3 May 2021                  [Page 15]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
-
-6.2.2.  Service Requirements
-
-   A no-shared-state retry service MUST be present on all paths from
-   potential clients to the server.  These paths MUST fail to pass QUIC
-   traffic should the service fail for any reason.  That is, if the
-   service is not operational, the server MUST NOT be exposed to client
-   traffic.  Otherwise, servers that have already disabled their Retry
-   capability would be vulnerable to attack.
 
    The path between service and server MUST be free of any potential
    attackers.  Note that this and other requirements above severely
@@ -891,18 +882,21 @@ Internet-Draft                   QUIC-LB                    October 2020
    Retry Source Connection ID: This also in cleartext and authenticated
    later.
 
+   Opaque Data: This data MUST contain encrypted information that allows
+   the retry service to validate the client's IP address, in accordance
+   with the QUIC specification.  It MUST also provide a
+   cryptographically secure means to validate the integrity of the
+   entire token.
+
+
+
+
 
 
 Duke & Banks               Expires 3 May 2021                  [Page 16]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
-
-   Opaque Data: This data MUST contain encrypted information that allows
-   the retry service to validate the client's IP address, in accordance
-   with the QUIC specification.  It MUST also provide a
-   cryptographically secure means to validate the integrity of the
-   entire token.
 
    Upon receipt of an Initial packet with a token that begins with '0',
    the retry service MUST validate the token in accordance with the QUIC
@@ -919,8 +913,8 @@ Internet-Draft                   QUIC-LB                    October 2020
 
    Note that this scheme has a performance drawback.  When the retry
    service is in active mode, clients with a token from a NEW_TOKEN
-   frame will suffer a 1-RTT penalty even though it has proof of address
-   with its token.
+   frame will suffer a 1-RTT penalty even though its token provides
+   proof of address.
 
    In inactive mode, the service MUST forward all packets that have no
    token or a token with the first bit set to '1'.  It MUST validate all
@@ -940,12 +934,18 @@ Internet-Draft                   QUIC-LB                    October 2020
    packets for a QUIC version the retry service understands.  It MAY
    send Retry for QUIC versions the Retry Service does not understand.
 
-   Tokens sent in NEW_TOKEN frames MUST have the first bit be set to
-   '1'.
+   Tokens sent in NEW_TOKEN frames MUST have the first bit set to '1'.
 
    If a server receives an Initial Packet with the first bit set to '1',
    it could be from a server-generated NEW_TOKEN frame and should be
    processed in accordance with the QUIC specification.  If a server
+   receives an Initial Packet with the first bit to '0', it is a Retry
+   token and the server MUST NOT attempt to validate it.  Instead, it
+   MUST assume the address is validated and MUST extract the Original
+   Destination Connection ID and Retry Source Connection ID, assuming
+   the format described in Section 6.2.2.
+
+
 
 
 
@@ -953,12 +953,6 @@ Duke & Banks               Expires 3 May 2021                  [Page 17]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
-
-   receives an Initial Packet with the first bit to '0', it is a Retry
-   token and the server MUST NOT attempt to validate it.  Instead, it
-   MUST assume the address is validated and MUST extract the Original
-   Destination Connection ID and Retry Source Connection ID, assuming
-   the format described in Section 6.2.2.
 
 6.3.  Shared-State Retry Service
 
@@ -969,46 +963,13 @@ Internet-Draft                   QUIC-LB                    October 2020
    token.
 
    Both server and service must have access to Universal time, though
-   tight synchronization is not necessary.
+   tight synchronization is unnecessary.
 
    All tokens, generated by either the server or retry service, MUST use
    the following format.  This format is the cleartext version.  On the
    wire, these fields are encrypted using an AES-ECB cipher and the
    token key.  If the token is not a multiple of 16 octets, the last
    block is padded with zeroes.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Duke & Banks               Expires 3 May 2021                  [Page 18]
-
-Internet-Draft                   QUIC-LB                    October 2020
-
 
    0                   1                   2                   3
    0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -1042,6 +1003,13 @@ Internet-Draft                   QUIC-LB                    October 2020
 
    The tokens have the following fields:
 
+
+
+Duke & Banks               Expires 3 May 2021                  [Page 18]
+
+Internet-Draft                   QUIC-LB                    October 2020
+
+
    ODCIL: The original destination connection ID length.  Tokens in
    NEW_TOKEN frames MUST set this field to zero.
 
@@ -1056,29 +1024,25 @@ Internet-Draft                   QUIC-LB                    October 2020
 
    Client IP Address: The source IP address from the triggering Initial
    packet.  The client IP address is 16 octets.  If an IPv4 address, the
-   last 12 octets are zeroes.
-
-
-
-
-Duke & Banks               Expires 3 May 2021                  [Page 19]
-
-Internet-Draft                   QUIC-LB                    October 2020
-
+   last 12 octets are zeroes.  If there is a Network Address Translator
+   (NAT) in the server infrastructure that changes the client IP, the
+   Retry Service MUST either be positioned behind the NAT, or the NAT
+   must have the token key to rewrite the Retry token accordingly.
 
    Timestamp: The timestamp is a 64-bit integer, in network order, that
    expresses the number of seconds in POSIX time (see Sec. 4.16 of
    [TIME_T]).
 
    Opaque Data: The server may use this field to encode additional
-   information, such as congestion window, RTT, or MTU.  Opaque data
-   SHOULD also allow servers to distinguish between retry tokens (which
-   trigger use of the original_destination_connection_id transport
-   parameter) and NEW_TOKEN frame tokens.
+   information, such as congestion window, RTT, or MTU.  Opaque data MAY
+   also allow servers to distinguish between retry tokens (which trigger
+   use of certain transport parameters) and NEW_TOKEN frame tokens.
 
 6.3.1.  Configuration Agent Actions
 
-   The configuration agent generates and distributes a "token key."
+   The configuration agent generates and distributes a "token key" and a
+   list of QUIC versions the service supports.  It must also inform the
+   service if a NAT lies between the service and the servers.
 
 6.3.2.  Service Requirements
 
@@ -1089,6 +1053,18 @@ Internet-Draft                   QUIC-LB                    October 2020
    In active mode, the service SHOULD decrypt incoming tokens.  The
    service SHOULD drop packets with an IP address that does not match,
    and SHOULD forward packets that do, regardless of the other fields.
+
+   However, the service MUST NOT decrypt or validate tokens if there is
+   a NAT between it and the servers.
+
+
+
+
+
+Duke & Banks               Expires 3 May 2021                  [Page 19]
+
+Internet-Draft                   QUIC-LB                    October 2020
+
 
    In inactive mode, the service SHOULD forward all packets to the
    server so that the server can issue an up-to-date token to the
@@ -1109,18 +1085,11 @@ Internet-Draft                   QUIC-LB                    October 2020
    retry_source_connection_id transport parameter, with length equal to
    RSCIL.
 
+   For QUIC versions the service not support, the server MAY use any
+   token format.
+
    As discussed in [QUIC-TRANSPORT], a server MUST NOT send a Retry
    packet in response to an Initial packet that contains a retry token.
-
-
-
-
-
-
-Duke & Banks               Expires 3 May 2021                  [Page 20]
-
-Internet-Draft                   QUIC-LB                    October 2020
-
 
 7.  Configuration Requirements
 
@@ -1146,6 +1115,13 @@ Internet-Draft                   QUIC-LB                    October 2020
    Note that server IDs are opaque bytes, not integers, so there is no
    notion of network order or host order.
 
+
+
+Duke & Banks               Expires 3 May 2021                  [Page 20]
+
+Internet-Draft                   QUIC-LB                    October 2020
+
+
    A full QUIC-LB configuration MUST also specify the information
    content of the first CID octet and the presence and mode of any Retry
    Service.
@@ -1156,35 +1132,16 @@ Internet-Draft                   QUIC-LB                    October 2020
    configuration in an internet packet.  The comments signify the range
    of acceptable values where applicable.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Duke & Banks               Expires 3 May 2021                  [Page 21]
-
-Internet-Draft                   QUIC-LB                    October 2020
-
-
     uint2    config_rotation_bits;
     boolean  first_octet_encodes_cid_length;
     enum     { none, non_shared_state, shared_state } retry_service;
     select (retry_service) {
         case none: null;
         case non_shared_state: uint32 list_of_quic_versions[];
-        case shared_state:     uint8 key[16];
+        case shared_state: {
+            uint8 key[16];
+            bool  nat_behind_service;
+        } shared_state_config;
     } retry_service_config;
     enum     { none, plaintext, stream_cipher, block_cipher }
                       routing_algorithm;
@@ -1212,32 +1169,27 @@ Internet-Draft                   QUIC-LB                    October 2020
    This section discusses considerations for some deployment scenarios
    not implied by the specification above.
 
-8.1.  Load balancer chains
-
-   Some network architectures may have multiple tiers of low-state load
-   balancers, where a first tier of devices makes a routing decision to
-   the next tier, and so on until packets reach the server.  Although
-   QUIC-LB is not explicitly designed for this use case, it is possible
-   to support it.
 
 
 
 
-
-
-
-
-
-
-Duke & Banks               Expires 3 May 2021                  [Page 22]
+Duke & Banks               Expires 3 May 2021                  [Page 21]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
 
+8.1.  Load balancer chains
+
+   Some network architectures may have multiple tiers of low-state load
+   balancers, where a first tier of devices makes a routing decision to
+   the next tier, and so on, until packets reach the server.  Although
+   QUIC-LB is not explicitly designed for this use case, it is possible
+   to support it.
+
    If each load balancer is assigned a range of server IDs that is a
    subset of the range of IDs assigned to devices that are closer to the
    client, then the first devices to process an incoming packet can
-   extract the server ID and then map it to the correct forwrading
+   extract the server ID and then map it to the correct forwarding
    address.  Note that this solution is extensible to arbitrarily large
    numbers of load-balancing tiers, as the maximum server ID space is
    quite large.
@@ -1258,9 +1210,10 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 9.  Version Invariance of QUIC-LB
 
-   Retry Services are inherently dependent on the format (and existence)
-   of Retry Packets in each version of QUIC, and so Retry Service
-   configuration explicitly includes the supported QUIC versions.
+   Non-shared-state Retry Services are inherently dependent on the
+   format (and existence) of Retry Packets in each version of QUIC, and
+   so Retry Service configuration explicitly includes the supported QUIC
+   versions.
 
    The server ID encodings, and requirements for their handling, are
    designed to be QUIC version independent (see [QUIC-INVARIANTS]).  A
@@ -1271,6 +1224,16 @@ Internet-Draft                   QUIC-LB                    October 2020
    The maximum Connection ID length could be below the minimum necessary
    for one or more encoding algorithms.
 
+
+
+
+
+
+Duke & Banks               Expires 3 May 2021                  [Page 22]
+
+Internet-Draft                   QUIC-LB                    October 2020
+
+
    Section 4 provides guidance about how load balancers should handle
    non-compliant DCIDs.  This guidance, and the implementation of an
    algorithm to handle these DCIDs, rests on some assumptions:
@@ -1280,15 +1243,6 @@ Internet-Draft                   QUIC-LB                    October 2020
 
    *  The use of client-generated incoming DCIDs does not persist beyond
       a few round trips in the connection.
-
-
-
-
-
-Duke & Banks               Expires 3 May 2021                  [Page 23]
-
-Internet-Draft                   QUIC-LB                    October 2020
-
 
    *  While the client is using DCIDs it generated, some exposed fields
       (IP address, UDP port, client-generated destination Connection ID)
@@ -1325,6 +1279,17 @@ Internet-Draft                   QUIC-LB                    October 2020
    patterns, and therefore efforts to frustrate any analysis of server
    ID encoding have diminishing returns.
 
+
+
+
+
+
+
+Duke & Banks               Expires 3 May 2021                  [Page 23]
+
+Internet-Draft                   QUIC-LB                    October 2020
+
+
 10.1.  Attackers not between the load balancer and server
 
    Any attacker might open a connection to the server infrastructure and
@@ -1335,16 +1300,6 @@ Internet-Draft                   QUIC-LB                    October 2020
    The Stream and Block Cipher CID algorithms provide robust protection
    against any sort of linkage.  The Plaintext CID algorithm makes no
    attempt to protect this encoding.
-
-
-
-
-
-
-Duke & Banks               Expires 3 May 2021                  [Page 24]
-
-Internet-Draft                   QUIC-LB                    October 2020
-
 
    Were this analysis to obtain the server encoding, then on-path
    observers might apply this analysis to correlating different client
@@ -1382,25 +1337,17 @@ Internet-Draft                   QUIC-LB                    October 2020
    different values to the config rotation bits (Section 3.1).  Note
    that either solution has a privacy impact; see Section 10.3.
 
-   These techniques are not necessary for the plaintext algorithm, as it
-   does not attempt to conceal the server ID.
 
 
 
 
-
-
-
-
-
-
-
-
-
-Duke & Banks               Expires 3 May 2021                  [Page 25]
+Duke & Banks               Expires 3 May 2021                  [Page 24]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
+
+   These techniques are not necessary for the plaintext algorithm, as it
+   does not attempt to conceal the server ID.
 
 10.5.  Stateless Reset Oracle
 
@@ -1445,18 +1392,21 @@ Internet-Draft                   QUIC-LB                    October 2020
               DOI 10.17487/RFC2119, March 1997,
               <https://www.rfc-editor.org/info/rfc2119>.
 
+
+
+
+
+
+Duke & Banks               Expires 3 May 2021                  [Page 25]
+
+Internet-Draft                   QUIC-LB                    October 2020
+
+
 Appendix A.  Load Balancer Test Vectors
 
    Each section of this draft includes multiple sets of load balancer
    configuration, each of which has five examples of server ID and
    server use bytes and how they are encoded in a CID.
-
-
-
-Duke & Banks               Expires 3 May 2021                  [Page 26]
-
-Internet-Draft                   QUIC-LB                    October 2020
-
 
    In some cases, there are no server use bytes.  Note that, for
    simplicity, the first octet bits used for neither config rotation nor
@@ -1500,19 +1450,18 @@ A.1.  Plaintext Connection ID Algorithm
 
    LB configuration: cr_bits 0x0 length_self_encoding: y sid_len 5
 
+
+
+
+Duke & Banks               Expires 3 May 2021                  [Page 26]
+
+Internet-Draft                   QUIC-LB                    October 2020
+
+
    cid 05bdcd8d0b1d sid bdcd8d0b1d su cid 06aee673725a63 sid aee673725a
    su 63 cid 07bbf338ddbf37f4 sid bbf338ddbf su 37f4 cid
    08fbbca64c26756840 sid fbbca64c26 su 756840 cid 09e7737c495b93894e34
    sid e7737c495b su 93894e34
-
-
-
-
-
-Duke & Banks               Expires 3 May 2021                  [Page 27]
-
-Internet-Draft                   QUIC-LB                    October 2020
-
 
 A.2.  Stream Cipher Connection ID Algorithm
 
@@ -1560,12 +1509,7 @@ A.2.  Stream Cipher Connection ID Algorithm
 
 
 
-
-
-
-
-
-Duke & Banks               Expires 3 May 2021                  [Page 28]
+Duke & Banks               Expires 3 May 2021                  [Page 27]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1621,7 +1565,7 @@ A.3.  Block Cipher Connection ID Algorithm
 
 
 
-Duke & Banks               Expires 3 May 2021                  [Page 29]
+Duke & Banks               Expires 3 May 2021                  [Page 28]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1677,7 +1621,7 @@ C.3.  since-draft-ietf-quic-load-balancers-02
 
 
 
-Duke & Banks               Expires 3 May 2021                  [Page 30]
+Duke & Banks               Expires 3 May 2021                  [Page 29]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1733,7 +1677,7 @@ C.8.  Since draft-duke-quic-load-balancers-04
 
 
 
-Duke & Banks               Expires 3 May 2021                  [Page 31]
+Duke & Banks               Expires 3 May 2021                  [Page 30]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1789,4 +1733,4 @@ Authors' Addresses
 
 
 
-Duke & Banks               Expires 3 May 2021                  [Page 32]
+Duke & Banks               Expires 3 May 2021                  [Page 31]
