@@ -5,8 +5,8 @@
 QUIC                                                             M. Duke
 Internet-Draft                                         F5 Networks, Inc.
 Intended status: Standards Track                                N. Banks
-Expires: 1 May 2021                                            Microsoft
-                                                         28 October 2020
+Expires: 3 May 2021                                            Microsoft
+                                                         30 October 2020
 
 
             QUIC-LB: Generating Routable QUIC Connection IDs
@@ -53,12 +53,12 @@ Status of This Memo
 
 
 
-Duke & Banks               Expires 1 May 2021                   [Page 1]
+Duke & Banks               Expires 3 May 2021                   [Page 1]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
 
-   This Internet-Draft will expire on 1 May 2021.
+   This Internet-Draft will expire on 3 May 2021.
 
 Copyright Notice
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Duke & Banks               Expires 1 May 2021                   [Page 2]
+Duke & Banks               Expires 3 May 2021                   [Page 2]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -147,7 +147,7 @@ Internet-Draft                   QUIC-LB                    October 2020
      C.6.  Since draft-duke-quic-load-balancers-06 . . . . . . . . .  31
      C.7.  Since draft-duke-quic-load-balancers-05 . . . . . . . . .  31
      C.8.  Since draft-duke-quic-load-balancers-04 . . . . . . . . .  31
-     C.9.  Since draft-duke-quic-load-balancers-03 . . . . . . . . .  31
+     C.9.  Since draft-duke-quic-load-balancers-03 . . . . . . . . .  32
      C.10. Since draft-duke-quic-load-balancers-02 . . . . . . . . .  32
      C.11. Since draft-duke-quic-load-balancers-01 . . . . . . . . .  32
      C.12. Since draft-duke-quic-load-balancers-00 . . . . . . . . .  32
@@ -165,7 +165,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                   [Page 3]
+Duke & Banks               Expires 3 May 2021                   [Page 3]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -221,7 +221,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                   [Page 4]
+Duke & Banks               Expires 3 May 2021                   [Page 4]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -277,7 +277,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                   [Page 5]
+Duke & Banks               Expires 3 May 2021                   [Page 5]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -333,7 +333,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                   [Page 6]
+Duke & Banks               Expires 3 May 2021                   [Page 6]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -389,7 +389,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                   [Page 7]
+Duke & Banks               Expires 3 May 2021                   [Page 7]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -445,7 +445,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                   [Page 8]
+Duke & Banks               Expires 3 May 2021                   [Page 8]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -501,7 +501,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                   [Page 9]
+Duke & Banks               Expires 3 May 2021                   [Page 9]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -557,7 +557,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 10]
+Duke & Banks               Expires 3 May 2021                  [Page 10]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -613,7 +613,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 11]
+Duke & Banks               Expires 3 May 2021                  [Page 11]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -669,7 +669,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 12]
+Duke & Banks               Expires 3 May 2021                  [Page 12]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -725,7 +725,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 13]
+Duke & Banks               Expires 3 May 2021                  [Page 13]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -781,7 +781,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 14]
+Duke & Banks               Expires 3 May 2021                  [Page 14]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -837,7 +837,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 15]
+Duke & Banks               Expires 3 May 2021                  [Page 15]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -893,7 +893,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 16]
+Duke & Banks               Expires 3 May 2021                  [Page 16]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -949,7 +949,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 17]
+Duke & Banks               Expires 3 May 2021                  [Page 17]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1005,7 +1005,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 18]
+Duke & Banks               Expires 3 May 2021                  [Page 18]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1032,13 +1032,7 @@ Internet-Draft                   QUIC-LB                    October 2020
    |                                                               |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                                                               |
-   +                                                               +
-   |                                                               |
-   +                                                               +
-   |                         date-time (160)                       |
-   +                                                               +
-   |                                                               |
-   +                                                               +
+   +                        Timestamp (64)                         +
    |                                                               |
    +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
    |                      Opaque Data (optional)                   |
@@ -1057,15 +1051,6 @@ Internet-Draft                   QUIC-LB                    October 2020
    Original Destination Connection ID: The server or Retry Service
    copies this from the field in the client Initial packet.
 
-
-
-
-
-Duke & Banks               Expires 1 May 2021                  [Page 19]
-
-Internet-Draft                   QUIC-LB                    October 2020
-
-
    Retry Source Connection ID: The server or Retry service copies this
    from the Source Connection ID of the Retry packet.
 
@@ -1073,10 +1058,17 @@ Internet-Draft                   QUIC-LB                    October 2020
    packet.  The client IP address is 16 octets.  If an IPv4 address, the
    last 12 octets are zeroes.
 
-   date-time: The date-time string is a total of 20 octets and encodes
-   the time the token was generated.  The format of date-time is
-   described in Section 5.6 of [RFC3339].  This ASCII field MUST use the
-   "Z" character for time-offset.
+
+
+
+Duke & Banks               Expires 3 May 2021                  [Page 19]
+
+Internet-Draft                   QUIC-LB                    October 2020
+
+
+   Timestamp: The timestamp is a 64-bit integer, in network order, that
+   expresses the number of seconds in POSIX time (see Sec. 4.16 of
+   [TIME_T]).
 
    Opaque Data: The server may use this field to encode additional
    information, such as congestion window, RTT, or MTU.  Opaque data
@@ -1111,17 +1103,6 @@ Internet-Draft                   QUIC-LB                    October 2020
    retry tokens marked as being a few seconds in the future, due to
    possible clock synchronization issues.
 
-
-
-
-
-
-
-Duke & Banks               Expires 1 May 2021                  [Page 20]
-
-Internet-Draft                   QUIC-LB                    October 2020
-
-
    After decrypting the token, the server uses the corresponding fields
    to populate the original_destination_connection_id transport
    parameter, with a length equal to ODCIL, and the
@@ -1130,6 +1111,16 @@ Internet-Draft                   QUIC-LB                    October 2020
 
    As discussed in [QUIC-TRANSPORT], a server MUST NOT send a Retry
    packet in response to an Initial packet that contains a retry token.
+
+
+
+
+
+
+Duke & Banks               Expires 3 May 2021                  [Page 20]
+
+Internet-Draft                   QUIC-LB                    October 2020
+
 
 7.  Configuration Requirements
 
@@ -1173,7 +1164,16 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 21]
+
+
+
+
+
+
+
+
+
+Duke & Banks               Expires 3 May 2021                  [Page 21]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1229,7 +1229,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 22]
+Duke & Banks               Expires 3 May 2021                  [Page 22]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1285,7 +1285,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 23]
+Duke & Banks               Expires 3 May 2021                  [Page 23]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1341,7 +1341,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 24]
+Duke & Banks               Expires 3 May 2021                  [Page 24]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1397,7 +1397,7 @@ Internet-Draft                   QUIC-LB                    October 2020
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 25]
+Duke & Banks               Expires 3 May 2021                  [Page 25]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1433,9 +1433,10 @@ Internet-Draft                   QUIC-LB                    October 2020
               Internet-Draft, draft-ietf-quic-transport,
               <https://tools.ietf.org/html/draft-ietf-quic-transport>.
 
-   [RFC3339]  Klyne, G. and C. Newman, "Date and Time on the Internet:
-              Timestamps", RFC 3339, DOI 10.17487/RFC3339, July 2002,
-              <https://www.rfc-editor.org/info/rfc3339>.
+   [TIME_T]   "Open Group Standard: Vol. 1: Base Definitions, Issue 7",
+              IEEE Std 1003.1 , 2018,
+              <http://pubs.opengroup.org/onlinepubs/9699919799/basedefs/
+              V1_chap04.html#tag_04_16>.
 
 12.2.  Informative References
 
@@ -1452,8 +1453,7 @@ Appendix A.  Load Balancer Test Vectors
 
 
 
-
-Duke & Banks               Expires 1 May 2021                  [Page 26]
+Duke & Banks               Expires 3 May 2021                  [Page 26]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1509,7 +1509,7 @@ A.1.  Plaintext Connection ID Algorithm
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 27]
+Duke & Banks               Expires 3 May 2021                  [Page 27]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1565,7 +1565,7 @@ A.2.  Stream Cipher Connection ID Algorithm
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 28]
+Duke & Banks               Expires 3 May 2021                  [Page 28]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1621,7 +1621,7 @@ A.3.  Block Cipher Connection ID Algorithm
 
 
 
-Duke & Banks               Expires 1 May 2021                  [Page 29]
+Duke & Banks               Expires 3 May 2021                  [Page 29]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
@@ -1662,6 +1662,8 @@ C.1.  since draft-ietf-quic-load-balancers-04
 
    *  Additional compliant DCID criteria
 
+   *  More compact timestamp in Retry token
+
 C.2.  since-draft-ietf-quic-load-balancers-03
 
    *  Improved Config Rotation text
@@ -1672,15 +1674,15 @@ C.2.  since-draft-ietf-quic-load-balancers-03
 
 C.3.  since-draft-ietf-quic-load-balancers-02
 
-   *  Replaced stream cipher algorithm with three-pass version
 
 
 
-
-Duke & Banks               Expires 1 May 2021                  [Page 30]
+Duke & Banks               Expires 3 May 2021                  [Page 30]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
+
+   *  Replaced stream cipher algorithm with three-pass version
 
    *  Updated Retry format to encode info for required TPs
 
@@ -1728,15 +1730,15 @@ C.8.  Since draft-duke-quic-load-balancers-04
 
    *  Added standard for retry services
 
-C.9.  Since draft-duke-quic-load-balancers-03
 
 
 
-
-Duke & Banks               Expires 1 May 2021                  [Page 31]
+Duke & Banks               Expires 3 May 2021                  [Page 31]
 
 Internet-Draft                   QUIC-LB                    October 2020
 
+
+C.9.  Since draft-duke-quic-load-balancers-03
 
    *  Renamed Plaintext CID algorithm as Obfuscated CID
 
@@ -1787,6 +1789,4 @@ Authors' Addresses
 
 
 
-
-
-Duke & Banks               Expires 1 May 2021                  [Page 32]
+Duke & Banks               Expires 3 May 2021                  [Page 32]
