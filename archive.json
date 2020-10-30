@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2020-10-29T21:17:39.191498+00:00",
+  "timestamp": "2020-10-30T13:56:58.863689+00:00",
   "repo": "quicwg/load-balancers",
   "labels": [
     {
@@ -1041,16 +1041,24 @@
       "id": "MDU6SXNzdWU3MTg3NDU2OTY=",
       "title": "question about timestamp in token",
       "url": "https://github.com/quicwg/load-balancers/issues/55",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "Lingtaonju",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "As the draft describes:\r\n\r\n'The date-time string is a total of 20 octets and encodes\r\n the time the token was generated. The format of date-time is\r\n described in Section 5.6 of [RFC3339].'\r\n\r\nthis needs 20 octets in ascii,\r\nmay be the unix time which is the the number of seconds since the Unix epoch in 8 octets\r\nis a better choice in transmission and computing ?",
       "createdAt": "2020-10-11T02:59:43Z",
-      "updatedAt": "2020-10-11T02:59:43Z",
-      "closedAt": null,
-      "comments": []
+      "updatedAt": "2020-10-30T13:56:11Z",
+      "closedAt": "2020-10-30T13:56:11Z",
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@Lingtaonju  have a look at the PR, please",
+          "createdAt": "2020-10-29T21:46:22Z",
+          "updatedAt": "2020-10-29T21:46:22Z"
+        }
+      ]
     }
   ],
   "pulls": [
@@ -2785,6 +2793,48 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 56,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTEyNTc2MTk4",
+      "title": "Use POSIX timestamp",
+      "url": "https://github.com/quicwg/load-balancers/pull/56",
+      "state": "MERGED",
+      "author": "martinduke",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #55.",
+      "createdAt": "2020-10-29T21:20:06Z",
+      "updatedAt": "2020-10-30T13:56:12Z",
+      "baseRepository": "quicwg/load-balancers",
+      "baseRefName": "master",
+      "baseRefOid": "d12573bacd05591bd4b6a4f650d563f383aea111",
+      "headRepository": "quicwg/load-balancers",
+      "headRefName": "small-timestamp",
+      "headRefOid": "117fa3bc3b890e6a8db835c7ac9d13819f1c1866",
+      "closedAt": "2020-10-30T13:56:11Z",
+      "mergedAt": "2020-10-30T13:56:11Z",
+      "mergedBy": "martinduke",
+      "mergeCommit": {
+        "oid": "a884d3d0bdf9567fb583427a1b1f4e18077aec44"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTIwMTQ4MzAz",
+          "commit": {
+            "abbreviatedOid": "117fa3b"
+          },
+          "author": "nibanks",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2020-10-29T23:03:06Z",
+          "updatedAt": "2020-10-29T23:03:06Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
