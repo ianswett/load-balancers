@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2020-10-30T13:56:58.863689+00:00",
+  "timestamp": "2020-11-03T22:34:49.010097+00:00",
   "repo": "quicwg/load-balancers",
   "labels": [
     {
@@ -621,15 +621,15 @@
       "id": "MDU6SXNzdWU2NDkzODQyODg=",
       "title": "Using ECB for retry tokens seems sub optimal",
       "url": "https://github.com/quicwg/load-balancers/issues/35",
-      "state": "CLOSED",
+      "state": "OPEN",
       "author": "huitema",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "Section 5.3 specifies a  Shared-State Retry Service describes a token format in which the token include the ODCID, a client IP encoded on 128 bits, and a 20 octets data-time, plus additional data. The token is encrypted using AES ECB. This seems sub-optimal:\r\n\r\n1) Using AES GCM or another AEAD format seems more natural. AEAD checks will immediately detect an invalid token, while using ECB forces reliance on invalidity heuristics.\r\n\r\n2) If using AEAD, there is no need to encode the IP address in the token. It can be derived from the IP header and placed in a pseudo header. The pseudo header can then be authenticated as part of AEAD decryption.\r\n\r\n3) The pseudo header approach can be used to authenticate other fields, e.g. verify that the DCID matches the SCID sent in the Retry packet.\r\n\r\n4) Encoding the time as 64 bits time64_t seems more natural than ASCII encoding, and also shorter.\r\n",
       "createdAt": "2020-07-01T23:03:07Z",
-      "updatedAt": "2020-07-09T01:16:44Z",
-      "closedAt": "2020-07-09T01:16:44Z",
+      "updatedAt": "2020-11-03T19:43:57Z",
+      "closedAt": null,
       "comments": [
         {
           "author": "huitema",
@@ -644,6 +644,27 @@
           "body": "Closed by #33 ",
           "createdAt": "2020-07-09T01:16:44Z",
           "updatedAt": "2020-07-09T01:16:44Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "This was closed in error, as #33 deals with the Stream Cipher.",
+          "createdAt": "2020-11-03T18:51:20Z",
+          "updatedAt": "2020-11-03T18:51:20Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I filed a very similar issue and then closed it when I realized the duplication. The text of that issue:\r\n\r\nI'm not an encryption expert, but if IIUC it's insufficiently hard to forge a shared-state retry token.\r\n\r\nBy inducing a Retry, an attacker can obtain the Retry SCID Length, and then focus entirely on an ODCIDs that allow the CID + CID Length part of the token to be a multiple of 16 B. For example, if RSCIDL= 10 B, then make ODCIDL = 20 B -> 32 Bytes for the block.\r\n\r\nThis then breaks Retry forgery into three separate problems:\r\n(1) Obtaining the mapping of IP Address to the first 16 Bytes of the token. A well-positioned observer could build a database of these in the time scale between token key rotations.\r\n(2) Generate lots of Retry tokens with an ODCID of the correct length, so there is a range of valid CID blocks.\r\n(3) Obtain a valid Retry every few seconds, using the right ODCID length, so that we have a valid timestamp.\r\n\r\nThus, the attacker has a database of\r\n\r\nvalid encrypted IP addresses\r\nvalid encrypted CIDs (really, it's the CID length that would cause validation to fail)\r\nvalid timestamps\r\nAs the spec uses AES-ECB, these blocks can be mixed and matched to create valid Retry tokens.\r\n\r\nThis is not exactly trivially open to attack [1], but it does feel like we're conceding a lot of entropy here. I would like someone to propose an alternate design that restores some of that entropy.\r\n\r\n[1] Step (1) seems to require a fairly privileged position in the network.",
+          "createdAt": "2020-11-03T19:06:18Z",
+          "updatedAt": "2020-11-03T19:06:18Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@huitema Could I trouble you for a PR on this?",
+          "createdAt": "2020-11-03T19:43:57Z",
+          "updatedAt": "2020-11-03T19:43:57Z"
         }
       ]
     },
@@ -906,15 +927,15 @@
       "id": "MDU6SXNzdWU2ODcyNDY5MDk=",
       "title": "Any suggestion about transmit client ip from quic-lb to quic-server?",
       "url": "https://github.com/quicwg/load-balancers/issues/51",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "william-zk",
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [],
       "body": "Dear author:\r\n    As you know, in many production scenarios, quic-server need to know the real ip/port of client. But when there is a quic-lb in the middle(a fullnat quic-lb), there are not any standard way to implement this function. Actually this function is not difficult to implement, will quic-lb-draft suggest or define a standard way for this function later?",
       "createdAt": "2020-08-27T13:33:15Z",
-      "updatedAt": "2020-09-24T16:10:30Z",
-      "closedAt": null,
+      "updatedAt": "2020-10-30T15:07:53Z",
+      "closedAt": "2020-10-30T15:07:53Z",
       "comments": [
         {
           "author": "martinduke",
@@ -985,6 +1006,13 @@
           "body": "IMO Proxy Protocol is a NAT function, not a load balancing function. I don't think it belongs in this draft. I do have an individual draft (quic-natsupp) that touches on some issues with QUIC NATs, and this could house this work, but I think it'd be better just to write a draft that describes this.\r\n\r\nI'll also note that the latest proxy protocol spec seems to offer UDP support, if I'm reading it correctly:  https://developers.cloudflare.com/spectrum/getting-started/proxy-protocol/#:~:text=When%20using%20UDP%20(currently%20an,Proxy%20Protocol%20to%20'on'.\r\n\r\nThere are some complexities in doing this well for QUIC. It ought to be version-independent (so no using specific long header packet types) and has to handle address migration properly.",
           "createdAt": "2020-09-24T16:10:30Z",
           "updatedAt": "2020-09-24T16:10:30Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "closing this as out of scope for quic-lb.",
+          "createdAt": "2020-10-30T15:07:53Z",
+          "updatedAt": "2020-10-30T15:07:53Z"
         }
       ]
     },
@@ -1000,7 +1028,7 @@
       "labels": [],
       "body": "Hi author:\r\n    Will quic-lb design Keepalive mechanism next? Surely it's a very important mechanism in load balancer.",
       "createdAt": "2020-09-14T09:00:56Z",
-      "updatedAt": "2020-09-24T17:29:19Z",
+      "updatedAt": "2020-11-03T19:15:50Z",
       "closedAt": null,
       "comments": [
         {
@@ -1009,6 +1037,13 @@
           "body": "I'm not sure what you mean by a keepalive mechanism. Layer 4 load balancers can't inject messages into the connection. What are you trying to achieve?",
           "createdAt": "2020-09-24T17:29:18Z",
           "updatedAt": "2020-09-24T17:29:18Z"
+        },
+        {
+          "author": "martinduke",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Any further response to this?",
+          "createdAt": "2020-11-03T19:15:49Z",
+          "updatedAt": "2020-11-03T19:15:49Z"
         }
       ]
     },
@@ -1057,6 +1092,30 @@
           "body": "@Lingtaonju  have a look at the PR, please",
           "createdAt": "2020-10-29T21:46:22Z",
           "updatedAt": "2020-10-29T21:46:22Z"
+        }
+      ]
+    },
+    {
+      "number": 57,
+      "id": "MDU6SXNzdWU3MzU1NTQ2ODQ=",
+      "title": "Rework Shared-State Token Security",
+      "url": "https://github.com/quicwg/load-balancers/issues/57",
+      "state": "CLOSED",
+      "author": "martinduke",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "I'm not an encryption expert, but if IIUC it's insufficiently hard to forge a shared-state retry token.\r\n\r\nBy inducing a Retry, an attacker can obtain the Retry SCID Length, and then focus entirely on an ODCIDs that allow the CID + CID Length part of the token to be a multiple of 16 B. For example, if RSCIDL= 10 B, then make ODCIDL = 20 B -> 32 Bytes for the block.\r\n\r\nThis then breaks Retry forgery into three separate problems:\r\n(1) Obtaining the mapping of IP Address to the first 16 Bytes of the token. A well-positioned observer could build a database of these in the time scale between token key rotations.\r\n(2) Generate lots of Retry tokens with an ODCID of the correct length, so there is a range of valid CID blocks.\r\n(3) Obtain a valid Retry every few seconds, using the right ODCID length, so that we have a valid timestamp.\r\n\r\nThus, the attacker has a database of \r\n- valid encrypted IP addresses\r\n- valid encrypted CIDs (really, it's the CID length that would cause validation to fail)\r\n- valid timestamps\r\n\r\nAs the spec uses AES-ECB, these blocks can be mixed and matched to create valid Retry tokens.\r\n\r\nThis is not exactly trivially open to attack [1], but it *does* feel like we're conceding a lot of entropy here. I would like someone to propose an alternate design that restores some of that entropy.\r\n\r\n[1] Step (1) seems to require a fairly privileged position in the network.\r\n",
+      "createdAt": "2020-11-03T18:44:47Z",
+      "updatedAt": "2020-11-03T19:05:45Z",
+      "closedAt": "2020-11-03T19:05:45Z",
+      "comments": [
+        {
+          "author": "martinduke",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "This is a duplicate of #35, which I reopened. Closing.",
+          "createdAt": "2020-11-03T19:05:45Z",
+          "updatedAt": "2020-11-03T19:05:45Z"
         }
       ]
     }
@@ -2835,6 +2894,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 58,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTE1MDI3NTEy",
+      "title": "Added transport parameter",
+      "url": "https://github.com/quicwg/load-balancers/pull/58",
+      "state": "OPEN",
+      "author": "martinduke",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Addresses #8 and #16.",
+      "createdAt": "2020-11-03T22:34:37Z",
+      "updatedAt": "2020-11-03T22:34:37Z",
+      "baseRepository": "quicwg/load-balancers",
+      "baseRefName": "master",
+      "baseRefOid": "5d17ce83c507dd6c7d2a12308fba6f129a7b7e0d",
+      "headRepository": "quicwg/load-balancers",
+      "headRefName": "add-transport-parameter",
+      "headRefOid": "772bf1e435171bf96bd2c9438135a45abb56a973",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
